@@ -37,8 +37,8 @@ class MyServer(BaseHTTPRequestHandler):
            <p>Current CPU temperature is {}</p>
            <form action="/" method="POST">
                Turn Relay :
-               <input style="height: 100px; width: 200px" type="submit" name="submit" value="Pin26On">
-               <input style="height: 100px; width: 200px" type="submit" name="submit" value="Pin26Off">
+               <input style="height: 100px; width: 200px" type="submit" name="submit" value="Pin13On">
+               <input style="height: 100px; width: 200px" type="submit" name="submit" value="Pin13Off">
                <input style="height: 100px; width: 200px" type="submit" name="submit" value="Pin19On">
                <input style="height: 100px; width: 200px" type="submit" name="submit" value="Pin19Off">
            </form>
@@ -61,9 +61,9 @@ class MyServer(BaseHTTPRequestHandler):
         GPIO.setmode(GPIO.BCM)
         GPIO.setwarnings(False)
 
-        if post_data == 'Pin26On':
+        if post_data == 'Pin13On':
             GPIO.setup(13, GPIO.OUT, initial=GPIO.HIGH)
-        elif post_data == 'Pin26Off':
+        elif post_data == 'Pin13Off':
             GPIO.output(13, GPIO.LOW)
             GPIO.cleanup(13)
         elif post_data == 'Pin19On':
