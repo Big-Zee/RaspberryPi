@@ -1,3 +1,4 @@
+# !/bin/python
 import RPi.GPIO as GPIO
 import os
 from time import sleep
