@@ -1,3 +1,3 @@
 # RaspberryPi
 
-Bunch of python scripts that I wrote.
+Bunch of python scripts that I wrote + some .NET stuff
