@@ -18,6 +18,7 @@ while (!Console.KeyAvailable)
             {
                 Console.WriteLine(string.Format("{0:#,0.000} °C",entry.Temperature.DegreesCelsius));
                 Console.WriteLine($"Temperature from {entry.Sensor.ToString()}: {  entry.Temperature.DegreesCelsius} °C");
+                Console.WriteLine("-----");
             }
             else
             {
