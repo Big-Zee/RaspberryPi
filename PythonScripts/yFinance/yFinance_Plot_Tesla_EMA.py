@@ -7,6 +7,14 @@ from ta.trend import MACD
 from ta.momentum import StochasticOscillator
 from ta.volume import ForceIndexIndicator
 
+def fp(*args):  # fp means 'floating print'
+    tmps = []
+    for arg in args:
+        if type(arg) is float: arg = round(arg, 4)  # transform only floats
+        tmps.append(str(arg))
+    print(" ".join(tmps))
+          
+
 '''period : str
             Valid periods: 1d,5d,1mo,3mo,6mo,1y,2y,5y,10y,ytd,max
             Either Use period parameter or use start and end
@@ -14,12 +22,15 @@ from ta.volume import ForceIndexIndicator
             Valid intervals: 1m,2m,5m,15m,30m,60m,90m,1h,1d,5d,1wk,1mo,3mo
             Intraday data cannot extend last 60 days'''
             
-period = '5y'
+period = '10y'
 interval = '1d'
 ticker = 'INTC'
 stock = yfinance.Ticker(ticker) # OK
 hist = stock.history(period=period,interval=interval) # OK
 
+
+
+'''
 #filename = "INTC_1_Years.csv"
 #print('Read from file...')
 #hist = pd.read_csv(filename)
@@ -34,7 +45,7 @@ hist = stock.history(period=period,interval=interval) # OK
 #dt_obs = [d.strftime("%Y-%m-%d") for d in pd.to_datetime(hist.index)]
 # define dates with missing values
 #dt_breaks = [d for d in dt_all.strftime("%Y-%m-%d").tolist() if not d in dt_obs]
-
+'''
 
 # MACD 
 macd = MACD(close=hist['Close'], 
@@ -157,8 +168,9 @@ fig3.update_xaxes(rangebreaks = [
                                 ]) #June 19 is - Juneteenth, an annual commemoration of the end of slavery in the United States after the Civil War
 #May 29 - Memorial Day'''
 #https://www.bankrate.com/investing/stock-market-holidays/
-fig3.show()
-fig3.write_html(r'/home/pi/StockCharts/TSLA/20230624.html')
+
+fig3.show()  #OK
+fig3.write_html(r'/home/pi/StockCharts/TSLA/20230624.html')  #OK
 
 
 
